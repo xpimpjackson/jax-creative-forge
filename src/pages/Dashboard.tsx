@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -26,7 +25,7 @@ import {
 } from "lucide-react";
 import { ModuleCard } from "@/components/ModuleCard";
 import { ProjectCard } from "@/components/ProjectCard";
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 const Dashboard = () => {
   const [loaded, setLoaded] = useState(false);

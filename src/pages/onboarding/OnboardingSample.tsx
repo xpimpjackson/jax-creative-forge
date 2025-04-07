@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -111,7 +110,7 @@ const OnboardingSample = () => {
                         <span>Generating your project...</span>
                         <span>{progress}%</span>
                       </div>
-                      <Progress value={progress} className="h-2 bg-white/10" indicatorClassName="bg-jax-purple" />
+                      <Progress value={progress} className="h-2 bg-white/10" />
                       <div className="text-xs text-gray-400 mt-2">
                         AI is analyzing your request and creating assets...
                       </div>
