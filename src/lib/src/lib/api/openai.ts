@@ -1,4 +1,3 @@
-// src/lib/api/openai.ts
 export async function generateCreativeText(prompt: string, tone: string) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -7,7 +6,7 @@ export async function generateCreativeText(prompt: string, tone: string) {
       Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
     },
     body: JSON.stringify({
-      model: "gpt-4", // or gpt-3.5-turbo
+      model: "gpt-4", // or "gpt-3.5-turbo"
       messages: [
         {
           role: "system",
@@ -29,3 +28,4 @@ export async function generateCreativeText(prompt: string, tone: string) {
   const data = await res.json();
   return data.choices[0].message.content.trim();
 }
+
