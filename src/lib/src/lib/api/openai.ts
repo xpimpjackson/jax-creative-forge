@@ -1,3 +1,5 @@
+// src/lib/api/openai.ts
+
 export async function generateCreativeText(prompt: string, tone: string) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
@@ -10,7 +12,7 @@ export async function generateCreativeText(prompt: string, tone: string) {
       messages: [
         {
           role: "system",
-          content: `You are a creative writing assistant. Write in a tone/style of: ${tone}`,
+          content: `You are a helpful assistant that generates creative text with a ${tone} tone.`,
         },
         {
           role: "user",
@@ -21,11 +23,9 @@ export async function generateCreativeText(prompt: string, tone: string) {
   });
 
   if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error?.message || "OpenAI API error");
+    throw new Error(`OpenAI API error: ${res.statusText}`);
   }
 
   const data = await res.json();
   return data.choices[0].message.content.trim();
 }
-
